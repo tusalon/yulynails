@@ -13,8 +13,8 @@ function ClientAuthScreen({ onAccessGranted, onGoBack }) {
     const [esProfesional, setEsProfesional] = React.useState(false);
     const [profesionalInfo, setProfesionalInfo] = React.useState(null);
     const [esAdmin, setEsAdmin] = React.useState(false);
-    const [codigoPaisDisplay, setCodigoPaisDisplay] = React.useState('+53');
-    const [digitosEsperados, setDigitosEsperados] = React.useState(8);
+    const [codigoPaisDisplay, setCodigoPaisDisplay] = React.useState('+1');
+    const [digitosEsperados, setDigitosEsperados] = React.useState(10);
 
     // Cargar configuración del negocio y la imagen
     React.useEffect(() => {
@@ -62,12 +62,11 @@ function ClientAuthScreen({ onAccessGranted, onGoBack }) {
         const numeroLimpio = numero.replace(/\D/g, '');
         const negocioIdActual = window.getNegocioIdActual();
         
-        // Usar la función del helper si existe, si no, fallback a +53
         let numeroCompleto;
         if (window.formatearNumeroParaBD) {
             numeroCompleto = window.formatearNumeroParaBD(numeroLimpio, negocioIdActual);
         } else {
-            numeroCompleto = `53${numeroLimpio}`;
+            numeroCompleto = `1${numeroLimpio}`;
         }
         
         try {
@@ -84,7 +83,7 @@ function ClientAuthScreen({ onAccessGranted, onGoBack }) {
                     localStorage.removeItem('negocioId');
                     localStorage.removeItem('negocioNombre');
                     localStorage.setItem('negocioId', negocioId);
-                    localStorage.setItem('negocioNombre', config?.nombre || 'Negocio de Prueba');
+                    localStorage.setItem('negocioNombre', config?.nombre || 'YulyNail');
                     
                     console.log('✅ negocioId guardado en localStorage:', negocioId);
                 }
@@ -156,7 +155,7 @@ function ClientAuthScreen({ onAccessGranted, onGoBack }) {
         if (window.formatearNumeroParaBD) {
             numeroCompleto = window.formatearNumeroParaBD(numeroLimpio, negocioIdActual);
         } else {
-            numeroCompleto = `53${numeroLimpio}`;
+            numeroCompleto = `1${numeroLimpio}`;
         }
         
         try {
@@ -199,7 +198,7 @@ function ClientAuthScreen({ onAccessGranted, onGoBack }) {
             if (window.formatearNumeroParaBD) {
                 numeroCompleto = window.formatearNumeroParaBD(numeroLimpio, negocioIdActual);
             } else {
-                numeroCompleto = `53${numeroLimpio}`;
+                numeroCompleto = `1${numeroLimpio}`;
             }
             
             const negocioId = window.NEGOCIO_ID_POR_DEFECTO || 
@@ -230,7 +229,7 @@ function ClientAuthScreen({ onAccessGranted, onGoBack }) {
     }
 
     const colorPrimario = config?.color_primario || '#ec4899';
-    const nombreNegocio = config?.nombre || 'Mi Salón';
+    const nombreNegocio = config?.nombre || 'YulyNail';
     const logoUrl = config?.logo_url;
     const sticker = config?.especialidad?.toLowerCase().includes('uñas') ? '💅' : 
                     config?.especialidad?.toLowerCase().includes('pelo') ? '💇‍♀️' : 
