@@ -1,29 +1,30 @@
-// sw.js - Service Worker para Yailen Nails
+// sw.js - Service Worker para YulyNail (USA)
+// URL: https://tusalon.github.io/yulynails/
 
-const CACHE_NAME = 'yailennails-v1';
+const CACHE_NAME = 'yulynails-v1';
 const urlsToCache = [
-  '/yailennails/',
-  '/yailennails/index.html',
-  '/yailennails/admin.html',
-  '/yailennails/admin-login.html',
-  '/yailennails/setup-wizard.html',
-  '/yailennails/editar-negocio.html',
-  '/yailennails/manifest.json',
-  '/yailennails/icons/icon-72x72.png',
-  '/yailennails/icons/icon-96x96.png',
-  '/yailennails/icons/icon-128x128.png',
-  '/yailennails/icons/icon-144x144.png',
-  '/yailennails/icons/icon-152x152.png',
-  '/yailennails/icons/icon-192x192.png',
-  '/yailennails/icons/icon-384x384.png',
-  '/yailennails/icons/icon-512x512.png'
+  '/yulynails/',
+  '/yulynails/index.html',
+  '/yulynails/admin.html',
+  '/yulynails/admin-login.html',
+  '/yulynails/setup-wizard.html',
+  '/yulynails/editar-negocio.html',
+  '/yulynails/manifest.json',
+  '/yulynails/icons/icon-72x72.png',
+  '/yulynails/icons/icon-96x96.png',
+  '/yulynails/icons/icon-128x128.png',
+  '/yulynails/icons/icon-144x144.png',
+  '/yulynails/icons/icon-152x152.png',
+  '/yulynails/icons/icon-192x192.png',
+  '/yulynails/icons/icon-384x384.png',
+  '/yulynails/icons/icon-512x512.png'
 ];
 
 // ============================================
 // INSTALACIÓN
 // ============================================
 self.addEventListener('install', event => {
-  console.log('📦 Service Worker instalando...');
+  console.log('📦 Service Worker instalando para YulyNail...');
   self.skipWaiting();
   
   event.waitUntil(
@@ -55,7 +56,7 @@ self.addEventListener('activate', event => {
         })
       );
     }).then(() => {
-      console.log('✅ Service Worker activado y listo');
+      console.log('✅ Service Worker activado y listo para YulyNail');
       return self.clients.claim();
     })
   );
@@ -108,7 +109,7 @@ self.addEventListener('fetch', event => {
           }
           // Si no hay cache y es imagen, devolver icon por defecto
           if (event.request.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
-            return caches.match('/yailennails/icons/icon-192x192.png');
+            return caches.match('/yulynails/icons/icon-192x192.png');
           }
           return new Response('Error de red', { status: 408 });
         });
@@ -138,6 +139,6 @@ self.addEventListener('message', event => {
   }
 });
 
-console.log('✅ Service Worker configurado para Yailen Nails');
+console.log('✅ Service Worker configurado para YulyNail (USA)');
 console.log('📦 Cache:', CACHE_NAME);
 console.log('📄 Archivos a cachear:', urlsToCache.length);

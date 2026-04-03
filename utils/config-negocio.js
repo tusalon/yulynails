@@ -1,12 +1,12 @@
 // utils/config-negocio.js - VERSIÓN MULTI-TENANT CORREGIDA
-// CLIENTE: Yailen Nails
+// CLIENTE: YulyNail (USA)
 
 console.log('🏢 config-negocio.js cargado');
 
 // ============================================
-// 🔥 CONFIGURACIÓN POR CLIENTE - ¡LO ÚNICO QUE CAMBIA!
+// 🔥 CONFIGURACIÓN POR CLIENTE - ID DE YULYNAIL (USA)
 // ============================================
-const NEGOCIO_ID_POR_DEFECTO = 'cf522698-af33-4208-987c-3f0f5f821a4d'; // ID de Yailen Nails
+const NEGOCIO_ID_POR_DEFECTO = 'affa3b9a-8a2c-4e82-a251-1cdcaaf2de75'; // ID de YulyNail
 
 // Hacer accesible globalmente
 window.NEGOCIO_ID_POR_DEFECTO = NEGOCIO_ID_POR_DEFECTO;
@@ -116,7 +116,7 @@ window.cargarConfiguracionNegocio = async function(forceRefresh = false) {
  */
 window.getNombreNegocio = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.nombre || 'Yailen Nails';
+    return config?.nombre || 'YulyNail';
 };
 
 /**
@@ -124,7 +124,7 @@ window.getNombreNegocio = async function() {
  */
 window.getTelefonoDuenno = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.telefono || '52625853';
+    return config?.telefono || '5043456728';
 };
 
 /**
@@ -132,7 +132,7 @@ window.getTelefonoDuenno = async function() {
  */
 window.getEmailNegocio = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.email || 'yailenpaez1@gmail.com';
+    return config?.email || 'yulynails@gmail.com';
 };
 
 /**
@@ -164,7 +164,7 @@ window.getHorarioAtencion = async function() {
  */
 window.getMensajeBienvenida = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.mensaje_bienvenida || '¡Bienvenida a Yailen Nails!';
+    return config?.mensaje_bienvenida || '¡Bienvenida a YulyNail!';
 };
 
 /**
@@ -180,7 +180,7 @@ window.getMensajeConfirmacion = async function() {
  */
 window.getNtfyTopic = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.ntfy_topic || 'yailennails';
+    return config?.ntfy_topic || 'yulynails';
 };
 
 /**
@@ -205,5 +205,5 @@ setTimeout(async () => {
     await window.cargarConfiguracionNegocio();
 }, 500);
 
-console.log('✅ config-negocio.js listo para Yailen Nails');
+console.log('✅ config-negocio.js listo para YulyNail');
 console.log('🏷️  ID configurado:', NEGOCIO_ID_POR_DEFECTO);
